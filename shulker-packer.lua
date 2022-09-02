@@ -21,15 +21,15 @@ while true do
 	end
 
 	if last_slot then
-		if string.find(last_slot["name"], "shulker") then
-			print("found shulker")
-			turtle.select(slot_index-1)
+		if string.find(last_slot["name"], "applied") and (last_slot["damage"] == 21) then
+			print("Detected name press!")
+			turtle.select(slot_index-2)
 			turtle.place()
-			emptyinv(slot_index-2)
+			emptyinv(slot_index-3)
 			
 			turtle.select(1)
 			turtle.dig()
-			inscriber.pullItems("down", slot_index, 1 , 1)
+			inscriber.pullItems("down", slot_index-1, 1 , 1)
 			inscriber.pullItems("down", 1, 1, 3)
 			sleep(10)
 			inscriber.pushItems("down", 4, 64, 16)
